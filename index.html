@@ -40,10 +40,6 @@
       font-family: 'Space Grotesk', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    .neon-border {
-      box-shadow: 0 0 15px rgba(0, 245, 155, 0.2);
-    }
-    /* Ocultar barra de scroll en contenedores desplazables */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -55,19 +51,20 @@
 </head>
 <body class="flex justify-center bg-[#07090e] min-h-screen">
 
-  <!-- Marco Móvil Centralizado (Max 430px) -->
+  <!-- Marco Móvil Centralizado -->
   <div class="w-full max-w-[430px] min-h-screen bg-surface-dim flex flex-col relative pb-24 shadow-2xl border-x border-surface-border/40 select-none">
 
-    <!-- HEADER SUPERIOR COMÚN -->
+    <!-- HEADER SUPERIOR -->
     <header class="sticky top-0 z-30 bg-surface-dim/95 backdrop-blur-md px-4 py-3 border-b border-surface-border flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-brand/10 border border-brand/40 flex items-center justify-center text-brand font-bold text-lg">
+      <div class="flex items-center gap-2.5">
+        <!-- Logo AURA -->
+        <div class="w-8 h-8 rounded-lg bg-brand/10 border border-brand/40 flex items-center justify-center text-brand font-bold text-base shadow-[0_0_10px_rgba(0,245,155,0.2)]">
           ▲
         </div>
         <div>
           <div class="flex items-center gap-1.5">
             <span class="font-bold tracking-tight text-white text-base">AuraRide</span>
-            <span class="text-[10px] bg-brand text-black font-extrabold px-1.5 py-0.2 rounded uppercase">PRO</span>
+            <span class="text-[10px] bg-brand text-black font-extrabold px-1.5 py-0.5 rounded uppercase">PRO</span>
           </div>
           <p id="topBarSubtitle" class="text-[10px] text-gray-400 font-mono tracking-wider">COCKPIT EN VIVO</p>
         </div>
@@ -78,10 +75,8 @@
           <span class="w-1.5 h-1.5 rounded-full bg-brand animate-ping"></span>
           <span>GPS FIX</span>
         </div>
-        <div class="flex items-center gap-1 text-[11px] font-mono text-gray-300 bg-surface-card px-2 py-0.5 rounded-full border border-surface-border">
-          <svg class="w-3 h-3 text-emerald-400 inline" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11.5a1.5 1.5 0 011.5-1.5h13a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 14.5v-3z"/></svg>
-          <span id="batPercent">94%</span>
-        </div>
+        <!-- Avatar de Perfil Ciclista Real -->
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Ciclista" class="w-8 h-8 rounded-full border border-brand/50 object-cover" />
       </div>
     </header>
 
@@ -90,44 +85,44 @@
     <!-- ========================================== -->
     <section id="tab-cockpit" class="screen-tab px-4 pt-3 space-y-4">
       
-      <!-- Barra de Estado Sensores BLE -->
+      <!-- Sensores BLE -->
       <div class="flex items-center justify-between text-xs font-mono bg-surface-card p-2.5 rounded-xl border border-surface-border">
         <div class="flex items-center gap-1.5 text-brand">
           <span class="w-2 h-2 rounded-full bg-brand"></span>
-          <span>PRECISIÓN 1.2m</span>
+          <span>PRECISIÓN GPS 1.2m</span>
         </div>
         <div class="flex items-center gap-3 text-gray-300">
           <span class="flex items-center gap-1">❤️ <b class="text-white">142</b> bpm</span>
           <span class="flex items-center gap-1">🔄 <b class="text-white">88</b> rpm</span>
-          <span class="text-emerald-400">⚡ BLE</span>
+          <span class="text-emerald-400">⚡ ANT+</span>
         </div>
       </div>
 
-      <!-- Tacómetro Gigante de Velocidad -->
-      <div class="bg-gradient-to-b from-surface-card to-surface-card/60 p-5 rounded-2xl border border-surface-border relative overflow-hidden text-center">
+      <!-- Tacómetro de Velocidad -->
+      <div class="bg-gradient-to-b from-surface-card to-surface-card/60 p-5 rounded-2xl border border-surface-border relative overflow-hidden text-center shadow-lg">
         <div class="flex justify-between items-center text-xs text-gray-400 font-mono mb-1">
           <span class="flex items-center gap-1 text-brand">● VELOCIDAD INSTANTÁNEA</span>
           <span class="text-brand font-medium">↗ +2.4 km/h vs avg</span>
         </div>
         
         <div class="my-2">
-          <span id="currentSpeed" class="text-6xl font-black tracking-tight text-white">34.4</span>
+          <span id="currentSpeed" class="text-6xl font-black tracking-tight text-white font-mono">34.4</span>
           <span class="text-xl font-bold text-gray-400 ml-1">km/h</span>
         </div>
 
         <div class="grid grid-cols-2 gap-2 pt-3 border-t border-surface-border/60 text-xs font-mono">
-          <div class="bg-surface-dim/60 py-2 rounded-lg">
+          <div class="bg-surface-dim/70 py-2 rounded-lg border border-surface-border/40">
             <p class="text-gray-400 text-[10px]">MEDIA</p>
             <p class="text-base font-bold text-white">28.4 <span class="text-[10px] text-gray-400">km/h</span></p>
           </div>
-          <div class="bg-surface-dim/60 py-2 rounded-lg">
+          <div class="bg-surface-dim/70 py-2 rounded-lg border border-surface-border/40">
             <p class="text-gray-400 text-[10px]">MÁXIMA</p>
             <p class="text-base font-bold text-amber-400">54.2 <span class="text-[10px] text-gray-400">km/h</span></p>
           </div>
         </div>
       </div>
 
-      <!-- Barra Zonas de Potencia -->
+      <!-- Barra de Zonas de Potencia -->
       <div class="bg-surface-card p-3 rounded-xl border border-surface-border space-y-2">
         <div class="flex justify-between items-center text-xs font-mono">
           <span class="text-brand font-bold">⚡ ZONA 3 · TEMPO AERÓBICO</span>
@@ -142,33 +137,33 @@
         </div>
       </div>
 
-      <!-- Trilogía de Altimetría -->
+      <!-- Métricas de Altimetría -->
       <div class="grid grid-cols-3 gap-2 text-center font-mono">
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
-          <p class="text-[10px] text-gray-400 flex items-center justify-center gap-1">⛰️ ALTITUD</p>
+          <p class="text-[10px] text-gray-400">⛰️ ALTITUD</p>
           <p class="text-lg font-bold text-white mt-1">1,845<span class="text-xs text-gray-400 font-normal">m</span></p>
           <p class="text-[9px] text-emerald-400 mt-0.5">Cota: 2,120m</p>
         </div>
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
-          <p class="text-[10px] text-gray-400 flex items-center justify-center gap-1">↗️ DESNIVEL</p>
+          <p class="text-[10px] text-gray-400">↗️ DESNIVEL</p>
           <p class="text-lg font-bold text-brand mt-1">+640<span class="text-xs text-gray-400 font-normal">m</span></p>
           <p class="text-[9px] text-gray-400 mt-0.5">Obj: 1,100m</p>
         </div>
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
-          <p class="text-[10px] text-gray-400 flex items-center justify-center gap-1">📈 PENDIENTE</p>
+          <p class="text-[10px] text-gray-400">📈 PENDIENTE</p>
           <p class="text-lg font-bold text-amber-400 mt-1">+7.4%</p>
           <p class="text-[9px] text-amber-400 font-bold mt-0.5 bg-amber-400/10 rounded">CAT 2</p>
         </div>
       </div>
 
-      <!-- Mini HUD de Navegación & Giro -->
+      <!-- Mini Radar & Dirección de Giro -->
       <div class="bg-surface-card p-3.5 rounded-xl border border-surface-border flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-brand/10 border border-brand/30 flex items-center justify-center text-brand text-xl font-bold">
             ↱
           </div>
           <div>
-            <p class="text-xs font-mono text-gray-400">PUERTO DE NAVACERRADA · KM 24.6</p>
+            <p class="text-[11px] font-mono text-gray-400">PUERTO DE NAVACERRADA · KM 24.6</p>
             <p class="text-sm font-bold text-white">Giro derecha en 400m</p>
           </div>
         </div>
@@ -177,7 +172,7 @@
         </span>
       </div>
 
-      <!-- Cuadrícula de Métricas Clave -->
+      <!-- Resumen en Vivo -->
       <div class="grid grid-cols-3 gap-2 font-mono text-center">
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
           <p class="text-[10px] text-gray-400">DISTANCIA</p>
@@ -193,12 +188,12 @@
         </div>
       </div>
 
-      <!-- Botones de Acción Grande -->
+      <!-- Botones de Acción -->
       <div class="grid grid-cols-2 gap-3 pt-1">
         <button onclick="toggleLap()" class="py-3.5 px-4 rounded-xl font-bold text-sm bg-surface-high hover:bg-surface-card border border-surface-border text-white flex items-center justify-center gap-2 active:scale-95 transition-transform">
-          🏁 MARCAR VUELTA
+          🏁 VUELTA / LAP 4
         </button>
-        <button id="pauseBtn" onclick="togglePauseRide()" class="py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 active:scale-95 transition-transform">
+        <button id="pauseBtn" onclick="togglePauseRide()" class="py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 active:scale-95 transition-transform">
           ⏸️ PAUSAR RUTA
         </button>
       </div>
@@ -210,7 +205,7 @@
     <!-- ========================================== -->
     <section id="tab-summary" class="screen-tab px-4 pt-3 space-y-4 hidden">
       
-      <!-- Título de la Salida -->
+      <!-- Detalle Salida -->
       <div class="bg-surface-card p-4 rounded-2xl border border-surface-border">
         <div class="flex justify-between items-center text-xs text-gray-400 font-mono mb-1">
           <span class="text-brand font-bold">🚴 CICLISMO DE RUTA</span>
@@ -220,18 +215,17 @@
         <p class="text-xs text-gray-400 mt-1">Entrenamiento matutino de escalada y cadencia sostenida</p>
         
         <div class="mt-3 flex items-center gap-2 bg-amber-400/10 border border-amber-400/30 px-3 py-2 rounded-xl text-amber-300 text-xs font-mono">
-          🏆 <span class="font-bold">¡NUEVO RÉCORD PERSONAL! -24s</span> en Segmento El Mirador
+          🏆 <span class="font-bold">¡NUEVO RÉCORD PERSONAL! -24s</span> en El Mirador
         </div>
       </div>
 
-      <!-- Gráfico de Altimetría (Perfil de Corte) -->
+      <!-- Gráfico de Altimetría -->
       <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-3">
         <div class="flex justify-between items-center text-xs font-mono">
           <span class="font-bold text-white flex items-center gap-1.5">📈 Perfil Altimétrico</span>
-          <span class="text-brand font-bold">D+ 1,240 m · Pend. Máx 12.8%</span>
+          <span class="text-brand font-bold">D+ 1,240 m · Máx 12.8%</span>
         </div>
 
-        <!-- Render SVG del Puerto de Montaña -->
         <div class="w-full h-36 bg-surface-dim rounded-xl p-2 relative overflow-hidden flex items-end">
           <svg class="w-full h-full overflow-visible" viewBox="0 0 350 100" preserveAspectRatio="none">
             <defs>
@@ -243,7 +237,6 @@
             </defs>
             <path d="M 0 85 Q 40 80, 80 40 T 150 15 T 220 75 T 280 45 T 350 70 L 350 100 L 0 100 Z" fill="url(#gradElevation)"/>
             <path d="M 0 85 Q 40 80, 80 40 T 150 15 T 220 75 T 280 45 T 350 70" fill="none" stroke="#00f59b" stroke-width="2.5"/>
-            <!-- Punto Cumbre -->
             <circle cx="150" cy="15" r="4" fill="#ff9900" stroke="#fff" stroke-width="1.5"/>
             <text x="135" y="10" fill="#ff9900" font-size="8" font-family="monospace" font-weight="bold">2,820m</text>
           </svg>
@@ -256,7 +249,7 @@
         </div>
       </div>
 
-      <!-- Cuadrícula de Métricas Consolidadas -->
+      <!-- Cuadrícula Métricas -->
       <div class="grid grid-cols-2 gap-2.5 font-mono">
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
           <p class="text-[10px] text-gray-400">DISTANCIA TOTAL</p>
@@ -266,7 +259,7 @@
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
           <p class="text-[10px] text-gray-400">DESNIVEL POSITIVO</p>
           <p class="text-xl font-bold text-brand mt-1">+1,240 <span class="text-xs text-gray-400">m</span></p>
-          <p class="text-[10px] text-gray-400">Máx: 1,410m</p>
+          <p class="text-[10px] text-gray-400">Cota máx: 1,410m</p>
         </div>
         <div class="bg-surface-card p-3 rounded-xl border border-surface-border">
           <p class="text-[10px] text-gray-400">TIEMPO RODANDO</p>
@@ -280,7 +273,7 @@
         </div>
       </div>
 
-      <!-- Zonas Cardíacas Desglosadas -->
+      <!-- Zonas Cardíacas -->
       <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-2.5">
         <div class="flex justify-between items-center text-xs font-mono">
           <span class="font-bold text-white">❤️ Zonas Cardíacas (BPM)</span>
@@ -314,17 +307,17 @@
         </div>
       </div>
 
-      <!-- Botones de Exportación -->
+      <!-- Botones de Acción -->
       <div class="space-y-2 pt-1">
         <button onclick="shareStrava()" class="w-full py-3.5 rounded-xl font-bold text-sm bg-brand text-black hover:bg-brand/90 transition shadow-lg shadow-brand/20 flex items-center justify-center gap-2">
           🚀 COMPARTIR EN STRAVA / RED AURA
         </button>
         <div class="grid grid-cols-2 gap-2">
           <button onclick="exportGPX()" class="py-2.5 rounded-xl text-xs font-mono font-bold bg-surface-high text-white hover:bg-surface-card border border-surface-border">
-            📥 EXPORTAR .GPX / .FIT
+            📥 EXPORTAR .GPX
           </button>
           <button class="py-2.5 rounded-xl text-xs font-mono font-bold bg-surface-high text-white hover:bg-surface-card border border-surface-border">
-            📝 NOTAS & SENSACIÓN
+            📝 NOTAS DE RUTA
           </button>
         </div>
       </div>
@@ -336,13 +329,13 @@
     <!-- ========================================== -->
     <section id="tab-routes" class="screen-tab px-4 pt-3 space-y-4 hidden">
       
-      <!-- Buscador GPX -->
+      <!-- Buscador -->
       <div class="relative">
         <input type="text" placeholder="Buscar puerto, segmento o track GPX..." class="w-full bg-surface-card border border-surface-border rounded-xl px-4 py-3 pl-10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand font-mono">
         <span class="absolute left-3.5 top-3.5 text-gray-400">🔍</span>
       </div>
 
-      <!-- Filtros de Disciplina -->
+      <!-- Filtros -->
       <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1 text-xs font-mono">
         <button class="bg-brand text-black px-3.5 py-1.5 rounded-full font-bold whitespace-nowrap">TODAS</button>
         <button class="bg-surface-card text-gray-300 px-3.5 py-1.5 rounded-full border border-surface-border whitespace-nowrap">RUTA / ASFALTO</button>
@@ -379,36 +372,25 @@
         </button>
       </div>
 
-      <!-- Tarjeta 2: Escalada El Páramo Pro -->
-      <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-3">
-        <div class="flex justify-between items-center text-xs font-mono">
-          <span class="bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded border border-orange-500/30">HORS CATÉGORIE</span>
-          <span class="text-amber-400">⭐ 4.8 (189)</span>
+      <!-- Tarjeta Grupal con Foto Real de Ciclistas -->
+      <div class="bg-surface-card rounded-2xl border border-surface-border overflow-hidden relative">
+        <div class="h-28 w-full overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Grupetta Ciclista" class="w-full h-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-surface-card/40 to-transparent"></div>
+          <span class="absolute top-2.5 left-3 text-[10px] font-mono bg-brand text-black font-bold px-2 py-0.5 rounded">
+            GRUPETTA SEMANAL AURA
+          </span>
         </div>
-        <div>
-          <h3 class="text-base font-bold text-white">Escalada El Páramo Pro</h3>
-          <p class="text-xs text-gray-400">Subida Continua · Pendiente sostenida</p>
+        <div class="p-3.5 space-y-2">
+          <h4 class="text-sm font-bold text-white">Reto Patios & La Calera (84 ciclistas)</h4>
+          <p class="text-xs text-gray-400">Este sábado · 06:00 AM · Punto de encuentro: Cra 7</p>
+          <button onclick="alert('¡Te has unido a la grupetta de este sábado!')" class="text-xs font-mono text-brand font-bold hover:underline flex items-center gap-1">
+            UNIRSE A LA RUTA →
+          </button>
         </div>
-        <div class="grid grid-cols-3 gap-2 font-mono text-center bg-surface-dim/80 p-2.5 rounded-xl border border-surface-border/50 text-xs">
-          <div>
-            <p class="text-[10px] text-gray-500">DISTANCIA</p>
-            <p class="font-bold text-white mt-0.5">38.0 km</p>
-          </div>
-          <div>
-            <p class="text-[10px] text-gray-500">DESNIVEL</p>
-            <p class="font-bold text-brand mt-0.5">+1,650 m</p>
-          </div>
-          <div>
-            <p class="text-[10px] text-gray-500">GRAD. MÁX</p>
-            <p class="font-bold text-orange-400 mt-0.5">14.2%</p>
-          </div>
-        </div>
-        <button onclick="startNavigation('Escalada El Páramo')" class="w-full py-2.5 bg-brand text-black font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 hover:bg-brand/90 transition">
-          ▲ NAVEGAR RUTA
-        </button>
       </div>
 
-      <!-- Botón Flotante GPX -->
+      <!-- Botón Subir GPX -->
       <button onclick="uploadGPX()" class="w-full py-3 bg-surface-card border border-brand/40 text-brand font-bold rounded-xl text-xs flex items-center justify-center gap-2 hover:bg-surface-high">
         📁 IMPORTAR TRACK GPX LOCAL
       </button>
@@ -420,7 +402,7 @@
     <!-- ========================================== -->
     <section id="tab-garage" class="screen-tab px-4 pt-3 space-y-4 hidden">
       
-      <!-- Resumen de Volumen Mensual -->
+      <!-- Resumen Volumen -->
       <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-3">
         <div class="flex justify-between items-center text-xs font-mono">
           <span class="text-brand font-bold">⚡ BIOMETRÍA & VOLUMEN</span>
@@ -442,86 +424,110 @@
         </div>
       </div>
 
-      <!-- Mi Bicicleta Activa -->
-      <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-3">
-        <div class="flex justify-between items-center">
-          <span class="text-xs font-mono text-brand bg-brand/10 border border-brand/30 px-2 py-0.5 rounded-full">● ACTIVA EN COCKPIT</span>
-          <button class="text-xs font-mono text-gray-400 hover:text-white">Cambiar bicy ⇄</button>
-        </div>
-        <div>
-          <h3 class="text-base font-bold text-white">Specialized S-Works Tarmac SL7</h3>
-          <p class="text-xs font-mono text-gray-400">Rodaje total acumulado: <b class="text-white">2,840 km</b></p>
+      <!-- Bicicleta Activa con FOTO REAL DE ALTA RESOLUCIÓN -->
+      <div class="bg-surface-card rounded-2xl border border-surface-border overflow-hidden">
+        
+        <!-- Contenedor de la Imagen Real de la Bicicleta de Carretera -->
+        <div class="relative w-full h-44 bg-[#0a0d14] overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=700&q=80" 
+            alt="Specialized S-Works Road Bike" 
+            class="w-full h-full object-cover object-center opacity-90 transition-transform duration-500 hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-black/30"></div>
+          <span class="absolute top-3 left-3 text-[10px] font-mono text-brand bg-black/70 backdrop-blur-md border border-brand/40 px-2 py-0.5 rounded-full">
+            ● ACTIVA EN COCKPIT
+          </span>
+          <div class="absolute bottom-2 right-3 font-mono text-right">
+            <span class="text-[10px] text-gray-400 block">RODAJE TOTAL</span>
+            <span class="text-base font-bold text-white">2,840 <span class="text-brand text-xs">km</span></span>
+          </div>
         </div>
 
-        <!-- Algoritmo Wear-Sync (Desgaste de Componentes) -->
-        <div class="space-y-3 pt-2 font-mono text-xs">
-          <p class="text-[10px] text-gray-400 uppercase tracking-wider">Desgaste en Vivo (Algoritmo AURA Wear-Sync)</p>
-          
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-gray-300">🔗 Cadena SRAM RED FlatTop</span>
-              <span class="text-brand font-bold">68% vida útil</span>
+        <div class="p-4 space-y-3 pt-2">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-[10px] font-mono text-brand">BICICLETA PRINCIPAL · RUTA</p>
+              <h3 class="text-base font-bold text-white">Specialized S-Works Tarmac SL7</h3>
             </div>
-            <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
-              <div class="bg-brand h-full w-[68%]"></div>
-            </div>
+            <button onclick="alert('Abriendo garaje de bicicletas...')" class="text-xs font-mono text-gray-400 hover:text-brand border border-surface-border px-2 py-1 rounded-lg">
+              Cambiar ⇄
+            </button>
           </div>
 
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-gray-300">🔄 Cubiertas GP5000 S TR 28c</span>
-              <span class="text-brand font-bold">82% vida útil</span>
+          <!-- Algoritmo Wear-Sync (Desgaste) -->
+          <div class="space-y-3 pt-2 font-mono text-xs">
+            <p class="text-[10px] text-gray-400 uppercase tracking-wider">Desgaste en Vivo (Algoritmo AURA Wear-Sync)</p>
+            
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-gray-300">🔗 Cadena SRAM RED FlatTop</span>
+                <span class="text-brand font-bold">68%</span>
+              </div>
+              <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+                <div class="bg-brand h-full w-[68%]"></div>
+              </div>
+              <p class="text-[9px] text-gray-500 mt-0.5">Revisión en ~450 km</p>
             </div>
-            <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
-              <div class="bg-brand h-full w-[82%]"></div>
-            </div>
-          </div>
 
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-amber-400">⚠️ Pastillas Freno Disco</span>
-              <span class="text-amber-400 font-bold">34% (Revisión recomendada)</span>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-gray-300">🔄 Cubiertas Continental GP5000</span>
+                <span class="text-brand font-bold">82%</span>
+              </div>
+              <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+                <div class="bg-brand h-full w-[82%]"></div>
+              </div>
+              <p class="text-[9px] text-gray-500 mt-0.5">Presión recomendada: 4.8 bar</p>
             </div>
-            <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
-              <div class="bg-amber-400 h-full w-[34%]"></div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-amber-400">⚠️ Pastillas Freno Disco</span>
+                <span class="text-amber-400 font-bold">34% (ALERTA)</span>
+              </div>
+              <div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+                <div class="bg-amber-400 h-full w-[34%]"></div>
+              </div>
+              <p class="text-[9px] text-amber-400/80 mt-0.5">Revisar grosor pronto (&lt; 0.5mm)</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Sensores BLE Vinculados -->
+      <!-- Sensores BLE -->
       <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-2 font-mono text-xs">
         <div class="flex justify-between items-center text-gray-400 mb-1">
           <span class="font-bold text-white">📡 Sensores Vinculados</span>
-          <span class="text-emerald-400 text-[10px]">3 ACTIVOS</span>
+          <span class="text-emerald-400 text-[10px]">3 ACTIVOS BLE / ANT+</span>
         </div>
-        <div class="flex items-center justify-between p-2 bg-surface-dim rounded-xl border border-surface-border">
+        <div class="flex items-center justify-between p-2.5 bg-surface-dim rounded-xl border border-surface-border">
           <div class="flex items-center gap-2">
             <span>❤️</span>
             <span class="text-white">Polar H10 Heart Strap</span>
           </div>
           <span class="text-emerald-400">98% 🔋</span>
         </div>
-        <div class="flex items-center justify-between p-2 bg-surface-dim rounded-xl border border-surface-border">
+        <div class="flex items-center justify-between p-2.5 bg-surface-dim rounded-xl border border-surface-border">
           <div class="flex items-center gap-2">
             <span>⚡</span>
-            <span class="text-white">Favero Assioma DUO</span>
+            <span class="text-white">Favero Assioma DUO (Bilateral)</span>
           </div>
           <span class="text-emerald-400">85% 🔋</span>
         </div>
-        <div class="flex items-center justify-between p-2 bg-surface-dim rounded-xl border border-surface-border">
+        <div class="flex items-center justify-between p-2.5 bg-surface-dim rounded-xl border border-surface-border">
           <div class="flex items-center gap-2">
             <span>📡</span>
-            <span class="text-white">Garmin Varia Radar</span>
+            <span class="text-white">Garmin Varia RTL515 Radar</span>
           </div>
-          <span class="text-emerald-400">Conectado</span>
+          <span class="text-emerald-400">● Conectado</span>
         </div>
       </div>
 
     </section>
 
     <!-- ========================================== -->
-    <!-- NAVEGACIÓN BOTTOM TAB BAR (FIJA INFERIOR) -->
+    <!-- BARRA INFERIOR (BOTTOM TAB BAR FIJA) -->
     <!-- ========================================== -->
     <nav class="fixed bottom-0 max-w-[430px] w-full bg-surface-dim/95 backdrop-blur-lg border-t border-surface-border flex justify-around items-center py-2.5 px-2 z-40">
       
@@ -553,18 +559,13 @@
 
   </div>
 
-  <!-- SCRIPT INTERACTIVO CLIENTE -->
+  <!-- SCRIPT INTERACTIVO -->
   <script>
-    // 1. Manejo del cambio de Tabs
     function switchTab(tabId) {
-      // Ocultar todas las secciones
       document.querySelectorAll('.screen-tab').forEach(sec => sec.classList.add('hidden'));
-      
-      // Mostrar la seleccionada
       const targetScreen = document.getElementById(`tab-${tabId}`);
       if (targetScreen) targetScreen.classList.remove('hidden');
 
-      // Resetear clases de navegación
       const tabs = ['cockpit', 'summary', 'routes', 'garage'];
       const subtitles = {
         cockpit: 'COCKPIT EN VIVO',
@@ -584,14 +585,12 @@
         }
       });
 
-      // Actualizar subtítulo del header
       document.getElementById('topBarSubtitle').innerText = subtitles[tabId] || 'AURA RIDE';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 2. Simulación en vivo de velocidad y cronómetro (Cockpit)
     let isPaused = false;
-    let seconds = 3862; // 01:04:22
+    let seconds = 3862;
 
     setInterval(() => {
       if (!isPaused) {
@@ -602,7 +601,6 @@
         const timeEl = document.getElementById('rideTime');
         if (timeEl) timeEl.innerText = `${hrs}:${mins}:${secs}`;
 
-        // Pequeña fluctuación realista de velocidad (32.0 a 36.5 km/h)
         const speedEl = document.getElementById('currentSpeed');
         if (speedEl && Math.random() > 0.4) {
           const newSpeed = (33.0 + Math.random() * 3.5).toFixed(1);
@@ -630,11 +628,11 @@
     }
 
     function shareStrava() {
-      alert('🚀 Sincronizando sesión "Alto de Patios & La Calera Loop" con Strava y Red AURA...');
+      alert('🚀 Sincronizando sesión con Strava y Red AURA...');
     }
 
     function exportGPX() {
-      alert('📥 Generando archivo GPX con telemetría de altimetría y pulso...');
+      alert('📥 Generando archivo GPX de telemetría...');
     }
 
     function startNavigation(routeName) {
@@ -643,7 +641,7 @@
     }
 
     function uploadGPX() {
-      alert('📁 Abre tu selector de archivos para cargar un archivo .GPX o .FIT');
+      alert('📁 Selecciona un archivo .GPX o .FIT desde tu teléfono');
     }
   </script>
 </body>
