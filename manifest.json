@@ -1,25 +1,21 @@
 {
-  "name": "AuraRide - Ciclismo GPS & Cockpit",
+  "name": "AuraRide - Ciclocomputador GPS",
   "short_name": "AuraRide",
-  "description": "Ciclocomputador personal, altimetría y telemetría de ruta GPS",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#07090e",
   "theme_color": "#00f59b",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%230b0e15'/%3E%3Ctext x='96' y='125' font-size='90' text-anchor='middle'%3E🚴%3C/text%3E%3C/svg%3E",
+      "src": "./aura-logo.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='108' fill='%230b0e15'/%3E%3Ctext x='256' y='330' font-size='240' text-anchor='middle'%3E🚴%3C/text%3E%3C/svg%3E",
+      "src": "./aura-logo.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
